@@ -7,10 +7,7 @@
       <span>The Goal</span>
     </h1>
     <div class="statement-goal-content">
-      The aim of this game is to win.
-      <br>
-      <br>
-      For this question, you will be asked to output a single line as a solution.
+      Guess the correct word before your opponent.
     </div>
   </div>
   <!-- RULES -->
@@ -20,48 +17,74 @@
       <span>Rules</span>
     </h1>
     <div>
-      <div class="statement-rules-content">Your program receives characters.<br>
-        Your actions have an effect.<br>
-        <br>
-        The game zone works as follows:
-        <ul>
-          <li>There are coordinates.</li>
-        </ul>
-        <br>
-        The units work as follows:
-        <ul>
-          <li>They move around.</li>
-        </ul>
-        You <strong>lose</strong> if:
-        <ul>
-          <li>You mess up.</li>
-          <li>You do not supply a valid sequence of actions.</li>
-        </ul>
+      <div class="statement-rules-content">The game is played between two players. Both player have their own board and play simultaneously. The game is played on turns. On each turn, both player should output a <strong>word</strong>.<br><br>
+
+    <ul>
+      <li>Reveling a letter present in the word will get you 2 points</li>
+      <li>Reveling a letter and it's position will get you 5 points</li>
+      <li>Guessing the correct word will get you a score of 50</li>
+
+    </ul>
+
+      <br><strong>N.B:</strong> The <strong>word</strong> not necessarily be a real word for the league only.<br>
       </div>
     </div>
   </div>
+      <div class="statement-section statement-rules">
+        <!-- Victory conditions -->
+        <div class="statement-victory-conditions">
+            <div class="icon victory"></div>
+            <div class="blk">
+                <div class="title">Victory Conditions</div>
+                <div class="text">
+                    <ul style="padding-top:0; padding-bottom: 0;">
+                        <li>
+                          You guess correct before your opponent
+                        </li>
+                        <li>
+                          You score more than your opponent
+                        </li>
+                    </ul>
+                    <strong>In case of tie, the game is considered as a draw, with both player being 1st</strong>
+                </div>
+            </div>
+        </div>
+        <!-- Lose conditions -->
+        <div class="statement-lose-conditions">
+            <div class="icon lose"></div>
+            <div class="blk">
+                <div class="title">Defeat Conditions</div>
+                <div class="text">
+                    <ul style="padding-top:0; padding-bottom: 0;">
+                        <li>
+                          Your opponent guess correct before your
+                        </li>
+                        <li>
+                          Your opponent score more than you
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <h3 style="font-size: 14px;
+                      font-weight: 700;
+                      padding-top: 15px;
+    color: #838891;
+                      padding-bottom: 15px;">
+            🐞 Debugging tips</h3>
+        <ul>
+            <li>Press the gear icon on the viewer to access extra display options</li>
+            <li>Use the keyboard to control the action: space to play/pause, arrows to step 1 frame at a time</li>
+            <li>For printing out anything, use stderror</li>
+        </ul>
+    </div>
+
   <!-- EXPERT RULES -->
-  <div class="statement-section statement-expertrules">
-    <h1>
-      <span class="icon icon-expertrules">&nbsp;</span>
-      <span>Expert Rules</span>
-    </h1>
-    <div class="statement-expert-rules-content">
-      If you're going to run local simulations, you'll need to know this!
-    </div>
-  </div>
+
   <!-- EXAMPLES -->
-  <div class="statement-section statement-examples">
-    <h1>
-      <span class="icon icon-example">&nbsp;</span>
-      <span>Example</span>
-    </h1>
-
-    <div class="statement-examples-text">
-      A basic situation, an instruction, a result.
-    </div>
-
-  </div>
+  
   <!-- WARNING -->
   <div class="statement-section statement-warning">
     <h1>
@@ -69,18 +92,10 @@
       <span>Note</span>
     </h1>
     <div class="statement-warning-content">
-      <b>Don’t forget to run the tests by launching them from the “Test cases” window</b>. You can submit at any time
-      to recieve a score against the training validators. <b>You can submit as many times as you like</b>. Your most
-      recent submission will be used for the final ranking.<br>
-      <br>
-      <strong>Warning:</strong> the validation tests used to compute the final score are not the same as the ones used
-      during the event.
-      Harcoded solutions will not score highly.<br>
-      <br>
-      Don't hesitate to change the viewer's options to help debug your code (<img style="opacity:.8;background:#20252a;"
-        height="18" src="https://www.codingame.com/servlet/fileservlet?id=3463235186409" width="18">).
+      The program must, within an infinite loop, read the contextual data from the standard input and provide to the standard output the desired instructions.<br>
     </div>
   </div>
+
   <!-- PROTOCOL -->
   <div class="statement-section statement-protocol">
     <h1>
@@ -89,15 +104,34 @@
     </h1>
     <!-- Protocol block -->
     <div class="blk">
-      <div class="text">The program must first read the initialization data from standard input. Then, provide to the
-        standard output one line with ...</div>
+      <div class="text">The program must first read the initialization data from standard input. Then, provide to the standard output one line for each game turn.</div>
     </div>
 
     <!-- Protocol block -->
     <div class="blk">
-      <div class="title">Input</div>
+      <div class="title">Initializaton input</div>
       <div class="text">
-        <p><span class="statement-lineno">Line 1: </span>one string <var>...</var>, the ...</p>
+        <p><span class="statement-lineno">Line 1: </span>An integer <var>wordCount</var>, total number of words in the word set.</p>
+      </div>
+      <div class="text">
+        <p><span class="statement-lineno">Line 2: </span> <var>wordCount</var> space separated <var>word</var> of length 5, represents the word set from where the word will be chosen.</p>
+      </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Input for one game turn</div>
+      <div class="text">
+        <p><span class="statement-lineno">A single line </span><const>5</const> space separated integer, representing the <var>state</var> of the letter of respective position of your previos guess</p>
+        A letter can hvae four states:
+        <ul>
+          <li><const>1</const> means the letter is <strong>not present in the word</strong></li>
+          <li><const>2</const> means the letter is <strong> present in the word but position is incorrect</strong></li>
+          <li><const>3</const> means the letter is <strong>present in the word and position is correct</strong></li>
+          <li><const>0</const> means the letter's state is <strong>unknown</strong></li>
+        </ul>
+        For the first turn all the 5 states are <const>0</const>
+         
       </div>
     </div>
 
@@ -105,7 +139,7 @@
     <div class="blk">
       <div class="title">Output</div>
       <div class="text">
-        <span class="statement-lineno">A single line</span> containing ...
+        <span class="statement-lineno">A single line</span> containing a word of length 5 in uppercase
         <br>
       </div>
     </div>
@@ -113,13 +147,11 @@
     <!-- Protocol block -->
     <div class="blk">
       <div class="title">Constraints</div>
-      <div class="text"><var>...</var> contains between 1 and 500 characters.<br>
-        <br>Allotted response time to output
-        is ≤ <const>2</const> seconds.</div>
+      <div class="text">1000 ≤ <var>wordCount</var> ≤ 5000
     </div>
   </div>
   <!-- STORY -->
-  <div class="statement-story-background">
+  <!-- <div class="statement-story-background">
     <div class="statement-story-cover" style="background-size: cover; background-image: url(https://www.codingame.com/servlet/fileservlet?id=2210505809934)">
       <div class="statement-story">
         <h1>Title</h1>
@@ -128,5 +160,5 @@
           Totally optional</div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
