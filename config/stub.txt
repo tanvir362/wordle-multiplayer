@@ -1,0 +1,19 @@
+read wordCount:int
+loopline wordCount word:word(5)
+gameloop
+loopline 5 state:int
+write GUESS
+
+INPUT
+wordCount: Total number of words in the word set
+word: Each word in the word set
+state: State of the character for each position of last guess, 0 for the 1st turn
+
+OUTPUT
+A five letter word in uppercase
+
+STATEMENT
+Wordle for programmers, you need to find the magical word from a set of words faster than your opponent to win
+Revealing the word get you score 50
+Every correct letter and position reveal will get you 5 points
+Every letter reveal not position will get you 2 points
